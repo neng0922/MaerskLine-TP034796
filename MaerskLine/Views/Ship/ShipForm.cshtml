@@ -39,12 +39,13 @@
     </div>
 
 
-    <div class="form-group">
+    <div class="form-group input-group date bootstrap-datetimepicker-widget">
         @Html.LabelFor(m => m.ShipDepartingTime)
         @Html.TextBoxFor(m => m.ShipDepartingTime, new { id = "departureTimePicker", @class = "form-control" })
+        
     </div>
 
-    <div class="form-group">
+    <div class="form-group input-group date bootstrap-datetimepicker-widget">
         @Html.LabelFor(m => m.ShipArrivingTime)
         @Html.TextBoxFor(m => m.ShipArrivingTime, new { id = "arrivalTimePicker", @class = "form-control" })
     </div>
