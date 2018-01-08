@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "ViewShip";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>View Ship</h1>
+
+<br />
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            @*<th>Ship ID</th>*@
+            <th>Ship Name</th>
+            <th>Routes</th>
+            <th>Number of Lots</th>
+            <th>Availability</th>
+            <th>Update Ship</th>
+            <th>Delete Ship</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var ship in Model)
+        {
+            <tr>
+                @*<td>@ship.shipID</td>*@
+                <td>@ship.ShipName</td>
+                @*<td>@ship.ShipRoute</td>*@
+                <td>@ship.ShipLotNum</td>
+                <td>@ship.ShipAvailability</td>
+                <td>@Html.ActionLink("Update", "EditShip", "Ship", new { shipID = ship.ShipID }, null)</td>
+                <td>@Html.ActionLink("Delete", "EditShip", "Ship", new { shipID = ship.ShipID }, null)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

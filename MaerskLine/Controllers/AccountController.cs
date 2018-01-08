@@ -9,6 +9,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MaerskLine.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+
+using System.Diagnostics;
 
 namespace MaerskLine.Controllers
 {
@@ -136,7 +139,8 @@ namespace MaerskLine.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
+        //[AllowAnonymous]
+        [Authorize(Roles = "Admin")]
         public ActionResult Register()
         {
             return View();
@@ -155,15 +159,23 @@ namespace MaerskLine.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    //// ken: to create role
+                    //var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+                    //var roleManager = new RoleManager<IdentityRole>(roleStore);
+                    //roleManager.CreateAsync(new IdentityRole("Admin"));
+                    //UserManager.AddToRoleAsync(user.Id, "Admin");
+
+                    //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    //return RedirectToAction("Index", "Home");
+                    TempData["RegisterSuccessMsg"] = "<script language='javascript' type='text/javascript'>alert     ('Registered Successfully !!!');</script>";
+                    return Redirect(this.Request.UrlReferrer.AbsolutePath);
                 }
                 AddErrors(result);
             }

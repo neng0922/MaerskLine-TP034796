@@ -1,0 +1,83 @@
+﻿@model MaerskLine.Models.Ship
+
+@{
+    ViewBag.Title = "ShipForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["AddShipSuccessMsg"] != null)
+{
+    @Html.Raw(TempData["AddShipSuccessMsg"])
+}
+
+<h1>Ship Form</h1>
+
+<br />
+
+@using (Html.BeginForm("SaveShip", "Ship"))
+{
+    @Html.HiddenFor(m => m.ShipID)
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ShipName)
+        @Html.TextBoxFor(m => m.ShipName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ShipLotNum)
+        @Html.TextBoxFor(m => m.ShipLotNum, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ShipOrigin)
+        @Html.TextBoxFor(m => m.ShipOrigin, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ShipDestination)
+        @Html.TextBoxFor(m => m.ShipDestination, new { @class = "form-control" })
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ShipDepartingTime)
+        @Html.TextBoxFor(m => m.ShipDepartingTime, new { id = "departureTimePicker", @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ShipArrivingTime)
+        @Html.TextBoxFor(m => m.ShipArrivingTime, new { id = "arrivalTimePicker", @class = "form-control" })
+    </div>
+
+    <div class="checkbox">
+        @Html.CheckBoxFor(m => m.ShipAvailability) Availability
+    </div>
+
+    <button type="submit" class="btn-primary">Save</button>
+}
+<hr />
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(function () {
+            $("#departureTimePicker").datetimepicker({
+                minDate: new Date()
+                //format: "DD/MM/YYYY h:mm A"
+            });
+            $('#arrivalTimePicker').datetimepicker({
+                useCurrent: false //Important! See issue #1075
+                //format: "DD/MM/YYYY h:mm A"
+            });
+            $("#departureTimePicker").on("dp.change",
+                function (e) {
+                    $('#arrivalTimePicker').data("DateTimePicker").minDate(e.date);
+                });
+            $("#arrivalTimePicker").on("dp.change",
+                function (e) {
+                    $('#departureTimePicker').data("DateTimePicker").maxDate(e.date);
+                });
+        });
+    </script>
+}
