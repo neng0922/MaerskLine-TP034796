@@ -24,7 +24,6 @@ namespace MaerskLine.Models
         [Display(Name = "Destination")]
         public String ShipDestination { get; set; }
 
-        [DataType(DataType.DateTime)]
         [Display(Name = "Departing Time")]
         public DateTime ShipDepartingTime { get; set; }
 
