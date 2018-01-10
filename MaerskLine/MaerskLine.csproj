@@ -200,6 +200,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\ShipController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -232,13 +233,35 @@
     <Compile Include="Migrations\201801080726047_ship.Designer.cs">
       <DependentUpon>201801080726047_ship.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801091128313_splitShipAndSchedule.cs" />
+    <Compile Include="Migrations\201801091128313_splitShipAndSchedule.Designer.cs">
+      <DependentUpon>201801091128313_splitShipAndSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801091131204_splitShipAndSchedule2.cs" />
+    <Compile Include="Migrations\201801091131204_splitShipAndSchedule2.Designer.cs">
+      <DependentUpon>201801091131204_splitShipAndSchedule2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801091314369_scheduleAvailability.cs" />
+    <Compile Include="Migrations\201801091314369_scheduleAvailability.Designer.cs">
+      <DependentUpon>201801091314369_scheduleAvailability.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801091317228_scheduleAvailabilityBool.cs" />
+    <Compile Include="Migrations\201801091317228_scheduleAvailabilityBool.Designer.cs">
+      <DependentUpon>201801091317228_scheduleAvailabilityBool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801091608319_scheduleIncludeShipObject.cs" />
+    <Compile Include="Migrations\201801091608319_scheduleIncludeShipObject.Designer.cs">
+      <DependentUpon>201801091608319_scheduleIncludeShipObject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Ship.cs" />
+    <Compile Include="Models\ShipScheduleViewModal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\CustomerOrderViewModel.cs" />
@@ -449,6 +472,8 @@
     <Content Include="Views\Ship\ShipForm.cshtml" />
     <Content Include="Views\Ship\ViewShip.cshtml" />
     <Content Include="Views\Ship\DeleteShip.cshtml" />
+    <Content Include="Views\Schedule\ScheduleForm.cshtml" />
+    <Content Include="Views\Schedule\ViewSchedule.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -478,6 +503,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801080726047_ship.resx">
       <DependentUpon>201801080726047_ship.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801091128313_splitShipAndSchedule.resx">
+      <DependentUpon>201801091128313_splitShipAndSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801091131204_splitShipAndSchedule2.resx">
+      <DependentUpon>201801091131204_splitShipAndSchedule2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801091314369_scheduleAvailability.resx">
+      <DependentUpon>201801091314369_scheduleAvailability.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801091317228_scheduleAvailabilityBool.resx">
+      <DependentUpon>201801091317228_scheduleAvailabilityBool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801091608319_scheduleIncludeShipObject.resx">
+      <DependentUpon>201801091608319_scheduleIncludeShipObject.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

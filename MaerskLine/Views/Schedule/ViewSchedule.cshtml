@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "ViewSchedule";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>View Schedule</h1>
+
+<br />
+
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Schedule ID</th>
+        <th>Origin</th>
+        <th>Destination</th>
+        <th>Departure DateTime</th>
+        <th>Arrival DateTime</th>
+        <th>Ship ID</th>
+        <th>Ship Name</th>
+        <th>Availability</th>
+        <th>Update Schedule</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    @foreach(var schedule in Model)
+    {
+        <tr>
+            <td>@schedule.ScheduleID</td>
+            <td>@schedule.ScheduleOrigin</td>
+            <td>@schedule.ScheduleDestination</td>
+            <td>@schedule.ScheduleDepartureDateTime</td>
+            <td>@schedule.ScheduleArrivalDateTime</td>
+            <td>@schedule.ShipID</td>
+            <td>@schedule.Ship.ShipName</td>
+            <td>@schedule.ScheduleAvailability</td>
+            <td>@Html.ActionLink("Update", "EditSchedule", "Schedule", new { scheduleID = schedule.ScheduleID }, null)</td>
+            @*<td>@Html.ActionLink("Delete", "EditShip", "Ship", new { shipID = ship.ShipID }, null)</td>*@
+        </tr>
+    }
+    </tbody>
+</table>
+

@@ -24,6 +24,8 @@ namespace MaerskLine.Models
 
         public DbSet<Ship> Ships { get; set; }
 
+        public DbSet <Schedule> Schedules { get; set; }
+
         public DbSet<Order> Orders { get; set; }
 
         public ApplicationDbContext()

@@ -42,10 +42,6 @@ namespace MaerskLine.Controllers
                 //shipInDB.ShipID = ship.ShipID;
                 shipInDB.ShipName = ship.ShipName;
                 shipInDB.ShipLotNum = ship.ShipLotNum;
-                shipInDB.ShipOrigin = ship.ShipOrigin;
-                shipInDB.ShipDestination = ship.ShipDestination;
-                shipInDB.ShipDepartingTime = ship.ShipDepartingTime;
-                shipInDB.ShipArrivingTime = ship.ShipArrivingTime;
                 shipInDB.ShipAvailability = ship.ShipAvailability;
             }
             
@@ -79,26 +75,14 @@ namespace MaerskLine.Controllers
             shipModel.ShipID = ship.ShipID;
             shipModel.ShipName = ship.ShipName;
             shipModel.ShipLotNum = ship.ShipLotNum;
-            shipModel.ShipOrigin = ship.ShipOrigin;
-            shipModel.ShipDestination = ship.ShipDestination;
-            shipModel.ShipDepartingTime = ship.ShipDepartingTime;
-            shipModel.ShipArrivingTime = ship.ShipArrivingTime;
+            //shipModel.ShipOrigin = ship.ShipOrigin;
+            //shipModel.ShipDestination = ship.ShipDestination;
+            //shipModel.ShipDepartingTime = ship.ShipDepartingTime;
+            //shipModel.ShipArrivingTime = ship.ShipArrivingTime;
             shipModel.ShipAvailability = ship.ShipAvailability;
 
             return View("ShipForm", shipModel);
         }
-
-        //public ActionResult ShipDetails(int shipID)
-        //{
-        //    var ship = dbContext.Ships.SingleOrDefault(c => c.ShipID == shipID);
-
-        //    if(shipID == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-
-        //    return View(ship);
-        //}
 
         public ActionResult DeleteShip()
         {

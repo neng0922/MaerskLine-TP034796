@@ -13,10 +13,6 @@
             @*<th>Ship ID</th>*@
             <th>Ship Name</th>
             <th>Number of Lots</th>
-            <th>Origin</th>
-            <th>Destination</th>
-            <th>Departing Time</th>
-            <th>Arriving Time</th>
             <th>Availability</th>
             <th>Update Ship</th>
             <th>Delete Ship</th>
@@ -30,10 +26,6 @@
                 @*<td>@ship.shipID</td>*@
                 <td>@ship.ShipName</td>
                 <td>@ship.ShipLotNum</td>
-                <td>@ship.ShipOrigin</td>
-                <td>@ship.ShipDestination</td>
-                <td>@ship.ShipDepartingTime</td>
-                <td>@ship.ShipArrivingTime</td>
                 <td>@ship.ShipAvailability</td>
                 <td>@Html.ActionLink("Update", "EditShip", "Ship", new { shipID = ship.ShipID }, null)</td>
                 <td>@Html.ActionLink("Delete", "EditShip", "Ship", new { shipID = ship.ShipID }, null)</td>
