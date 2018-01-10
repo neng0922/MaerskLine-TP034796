@@ -16,28 +16,33 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Schedule.ScheduleOrigin)
         @Html.TextBoxFor(m => m.Schedule.ScheduleOrigin, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Schedule.ScheduleOrigin)
     </div>
 
     <div class="form-group">
         @Html.LabelFor(m => m.Schedule.ScheduleDestination)
         @Html.TextBoxFor(m => m.Schedule.ScheduleDestination, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Schedule.ScheduleDestination)
     </div>
 
 
     <div class="form-group input-group date bootstrap-datetimepicker-widget">
         @Html.LabelFor(m => m.Schedule.ScheduleDepartureDateTime)
         @Html.TextBoxFor(m => m.Schedule.ScheduleDepartureDateTime, new { id = "departureTimePicker", @class = "form-control" })
+        <div id="test">@Html.ValidationMessageFor(m => m.Schedule.ScheduleDepartureDateTime)</div>
 
     </div>
 
     <div class="form-group input-group date bootstrap-datetimepicker-widget">
         @Html.LabelFor(m => m.Schedule.ScheduleArrivalDateTime)
         @Html.TextBoxFor(m => m.Schedule.ScheduleArrivalDateTime, new { id = "arrivalTimePicker", @class = "form-control" })
+        <div id="test">@Html.ValidationMessageFor(m => m.Schedule.ScheduleArrivalDateTime)</div>
     </div>
 
     <div class="form-group">
         @Html.LabelFor(m => m.Schedule.ShipID)
         @Html.DropDownListFor(m => m.Schedule.ShipID, new SelectList(Model.Ships, "ShipID", "ShipName"), new {@class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Schedule.ShipID)
     </div>
 
     <div class="form-group checkbox ">

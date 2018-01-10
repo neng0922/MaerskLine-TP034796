@@ -21,11 +21,13 @@
     <div class="form-group">
         @Html.LabelFor(m => m.ShipName)
         @Html.TextBoxFor(m => m.ShipName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ShipName)
     </div>
 
     <div class="form-group">
         @Html.LabelFor(m => m.ShipLotNum)
         @Html.TextBoxFor(m => m.ShipLotNum, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ShipLotNum)
     </div>
 
     <div class="checkbox">
@@ -37,3 +39,7 @@
 }
 
 <hr />
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

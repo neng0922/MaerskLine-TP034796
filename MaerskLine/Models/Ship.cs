@@ -12,9 +12,11 @@ namespace MaerskLine.Models
         [Display(Name = "Ship ID")]
         public int ShipID { get; set; }
 
+        [Required]
         [Display(Name = "Ship Name")]
         public String ShipName { get; set; }
 
+        [Required]
         [Display(Name = "Number of Lots")]
         public int ShipLotNum { get; set; }
 

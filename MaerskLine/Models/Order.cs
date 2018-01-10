@@ -12,13 +12,16 @@ namespace MaerskLine.Models
 		[Display(Name = "Order ID")]
 		public int orderID { get; set; }
 
-		[Display(Name = "Customer Name")]
+	    [Required]
+        [Display(Name = "Customer Name")]
 		public String orderCustomerName { get; set; }
 
-		[Display(Name = "Order Details")]
+	    [Required]
+        [Display(Name = "Order Details")]
 		public String orderDetail { get; set; }
 
-		[Display(Name = "Required Lot Number")]
+	    [Required]
+        [Display(Name = "Required Lot Number")]
 		public int orderLotNum { get; set; }
 
 		[Display(Name = "Order Delivered")]
