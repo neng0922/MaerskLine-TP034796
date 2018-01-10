@@ -18,6 +18,9 @@ namespace MaerskLine.Models
         [Display(Name = "Number of Lots")]
         public int ShipLotNum { get; set; }
 
+        [Display(Name = "Remaining Lots")]
+        public int ShipLotNumRemaining { get; set; }
+
         [Display(Name = "Availability")]
         public Boolean ShipAvailability { get; set; }
     }

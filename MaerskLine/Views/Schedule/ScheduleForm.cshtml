@@ -41,7 +41,8 @@
     </div>
 
     <div class="form-group checkbox ">
-        @Html.CheckBoxFor(m => m.Schedule.ScheduleAvailability) Availability
+        @Html.CheckBoxFor(m => m.Schedule.ScheduleAvailability)
+        @Html.LabelFor(m => m.Schedule.ScheduleAvailability)
     </div>
 
     <button type="submit" class="btn-primary">Save</button>

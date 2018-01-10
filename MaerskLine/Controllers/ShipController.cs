@@ -33,6 +33,8 @@ namespace MaerskLine.Controllers
         {
             if (ship.ShipID == 0)
             {
+                ship.ShipLotNumRemaining = ship.ShipLotNum;
+
                 dbContext.Ships.Add(ship);
             }
             else
@@ -42,6 +44,7 @@ namespace MaerskLine.Controllers
                 //shipInDB.ShipID = ship.ShipID;
                 shipInDB.ShipName = ship.ShipName;
                 shipInDB.ShipLotNum = ship.ShipLotNum;
+                shipInDB.ShipLotNumRemaining = shipInDB.ShipLotNumRemaining;
                 shipInDB.ShipAvailability = ship.ShipAvailability;
             }
             

@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using MaerskLine.Models;
 using MaerskLine.ViewModel;
+using System.Diagnostics;
 
 namespace MaerskLine.Controllers
 {
@@ -60,13 +61,27 @@ namespace MaerskLine.Controllers
                
             };
 
-            dbContext.Orders.Add(order);
+            var getLotNum = dbContext.Ships.SingleOrDefault(c => c.ShipID == osvm.Schedule.ShipID);
 
-            dbContext.SaveChanges();
+            if (osvm.Order.orderLotNum > getLotNum.ShipLotNumRemaining)
+            {
+                // false
 
-            var orderList = dbContext.Orders.Include(s => s.Schedule).ToList();
+                return View("OrderForm",osvm);
+            }
+            else
+            {
+                getLotNum.ShipLotNumRemaining -= osvm.Order.orderLotNum;
 
-            return View("ViewOrder",orderList);
+                dbContext.Orders.Add(order);
+
+                dbContext.SaveChanges();
+
+                var orderList = dbContext.Orders.Include(s => s.Schedule.Ship).Include(s => s.Schedule).ToList();
+
+                return View("ViewOrder", orderList);
+            }
+            
         }
 
         public ActionResult ViewOrder()

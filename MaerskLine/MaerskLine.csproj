@@ -261,6 +261,10 @@
     <Compile Include="Migrations\201801100817187_orderScheduleObject.Designer.cs">
       <DependentUpon>201801100817187_orderScheduleObject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801101701589_shipLotNumRemaining.cs" />
+    <Compile Include="Migrations\201801101701589_shipLotNumRemaining.Designer.cs">
+      <DependentUpon>201801101701589_shipLotNumRemaining.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -535,6 +539,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801100817187_orderScheduleObject.resx">
       <DependentUpon>201801100817187_orderScheduleObject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801101701589_shipLotNumRemaining.resx">
+      <DependentUpon>201801101701589_shipLotNumRemaining.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -33,7 +33,7 @@
                 <td>@Model.Schedule.ScheduleDepartureDateTime</td>
                 <td>@Model.Schedule.ScheduleArrivalDateTime</td>
                 <td>@Model.Schedule.Ship.ShipName</td>
-                <td>@Model.Schedule.Ship.ShipLotNum</td>
+                <td>@Model.Schedule.Ship.ShipLotNumRemaining</td>
             </tr>
         </tbody>
     </table>
@@ -49,8 +49,14 @@
     </div>*@
 
     @Html.HiddenFor(m => m.Schedule.ScheduleID)
+    @Html.HiddenFor(m => m.Schedule.ScheduleOrigin)
+    @Html.HiddenFor(m => m.Schedule.ScheduleDestination)
+    @Html.HiddenFor(m => m.Schedule.ScheduleDepartureDateTime)
+    @Html.HiddenFor(m => m.Schedule.ScheduleArrivalDateTime)
 
-    @*@Html.HiddenFor(m => m.Order.Schedule.ScheduleID)*@
+    @Html.HiddenFor(m => m.Schedule.ShipID)
+    @Html.HiddenFor(m => m.Schedule.Ship.ShipName)
+    @Html.HiddenFor(m => m.Schedule.Ship.ShipLotNumRemaining)
 
     @Html.HiddenFor(m => m.Order.orderID)
 

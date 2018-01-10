@@ -29,7 +29,8 @@
     </div>
 
     <div class="checkbox">
-        @Html.CheckBoxFor(m => m.ShipAvailability) Availability
+        @Html.CheckBoxFor(m => m.ShipAvailability)
+        @Html.LabelFor(m => m.ShipAvailability)
     </div>
 
     <button type="submit" class="btn-primary">Save</button>
