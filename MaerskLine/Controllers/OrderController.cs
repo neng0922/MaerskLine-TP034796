@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,24 +11,69 @@ namespace MaerskLine.Controllers
 {
     public class OrderController : Controller
     {
-        // GET: Order
-        public ActionResult Random()
+        private ApplicationDbContext dbContext;
+
+        public OrderController()
         {
-            var orders = new Order() {orderDetail = "Liquid" };
+            dbContext = new ApplicationDbContext();
+        }
 
-            var customers = new List<Customer>
+        protected override void Dispose(bool disposing)
+        {
+            dbContext.Dispose();
+        }
+
+        // GET: Order
+
+        public ActionResult SelectSchedule()
+        {
+            var schedule = dbContext.Schedules.Include(s => s.Ship).ToList();
+
+            return View(schedule);
+        }
+
+        public ActionResult OrderForm(int scheduleID)
+        {
+            var schedule = dbContext.Schedules.Include(s => s.Ship).SingleOrDefault(c => c.ScheduleID == scheduleID);
+
+            if (schedule == null)
             {
-                new Customer {custName = "ken" },
-                new Customer {custName = "peter" }
+                return HttpNotFound();
+            }
+
+            OrderScheduleViewModel osvm = new OrderScheduleViewModel
+            {
+                Schedule = schedule
             };
 
-            var viewModel = new CustomerOrderViewModel
+            return View(osvm);
+        }
+
+        public ActionResult SaveOrder(OrderScheduleViewModel osvm)
+        {
+            var order = new Order
             {
-                Orders = orders,
-                Customers = customers
+                orderCustomerName = osvm.Order.orderCustomerName,
+                orderDetail = osvm.Order.orderDetail,
+                orderLotNum = osvm.Order.orderLotNum,
+                ScheduleID = osvm.Schedule.ScheduleID,
+               
             };
 
-            return View(viewModel);
+            dbContext.Orders.Add(order);
+
+            dbContext.SaveChanges();
+
+            var orderList = dbContext.Orders.Include(s => s.Schedule).ToList();
+
+            return View("ViewOrder",orderList);
+        }
+
+        public ActionResult ViewOrder()
+        {
+            var order = dbContext.Orders.Include(s => s.Schedule).Include(s => s.Schedule.Ship).ToList();
+
+            return View(order);
         }
     }
 }

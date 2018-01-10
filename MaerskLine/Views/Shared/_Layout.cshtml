@@ -42,8 +42,8 @@
                     <h4>Manage Ship</h4>
                     <ul>
                         @*name,action,controller*@
-                        <li>@Html.ActionLink("AddShip", "ShipForm", "Ship")</li>
-                        <li>@Html.ActionLink("ViewShip", "ViewShip", "Ship")</li>
+                        <li>@Html.ActionLink("Add Ship", "ShipForm", "Ship")</li>
+                        <li>@Html.ActionLink("View Ship", "ViewShip", "Ship")</li>
                         @*<li>@Html.ActionLink("DeleteShip", "DeleteShip", "Ship")</li>*@
                     </ul>
                 </div>
@@ -52,8 +52,8 @@
                     <h4>Manage Schedule</h4>
                     <ul>
                         @*name,action,controller*@
-                        <li>@Html.ActionLink("AddSchedule", "ScheduleForm", "Schedule")</li>
-                        <li>@Html.ActionLink("ViewSchedule", "ViewSchedule", "Schedule")</li>
+                        <li>@Html.ActionLink("Add Schedule", "ScheduleForm", "Schedule")</li>
+                        <li>@Html.ActionLink("View Schedule", "ViewSchedule", "Schedule")</li>
                     </ul>
                 </div>
             </div>
@@ -62,6 +62,16 @@
         else
         {
             <h1>not admin mou</h1>
+
+            <div class="col-md-4">
+                <h4>Manage Order</h4>
+                <ul>
+                    @*name,action,controller*@
+                    <li>@Html.ActionLink("Add Order", "SelectSchedule", "Order")</li>
+                    @*<li>@Html.ActionLink("ViewShip", "ViewShip", "Ship")</li>*@
+                    @*<li>@Html.ActionLink("DeleteShip", "DeleteShip", "Ship")</li>*@
+                </ul>
+            </div>
         }
 
         <hr />

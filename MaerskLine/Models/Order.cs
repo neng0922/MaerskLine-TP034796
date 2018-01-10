@@ -8,15 +8,24 @@ namespace MaerskLine.Models
 {
 	public class Order
 	{
-        [Key]
-        public int orderID { get; set; }
+		[Key]
+		[Display(Name = "Order ID")]
+		public int orderID { get; set; }
 
-        public String custName { get; set; }
+		[Display(Name = "Customer Name")]
+		public String orderCustomerName { get; set; }
 
-        public String orderDetail { get; set; }
+		[Display(Name = "Order Details")]
+		public String orderDetail { get; set; }
 
-        public int orderLotNum { get; set; }
+		[Display(Name = "Required Lot Number")]
+		public int orderLotNum { get; set; }
 
-        public DateTime orderDateTime { get; set; }
-    }
+		[Display(Name = "Order Delivered")]
+		public bool orderDelivered { get; set; }
+
+		public int ScheduleID { get; set; }
+
+		public Schedule Schedule { get; set; }
+	}
 }

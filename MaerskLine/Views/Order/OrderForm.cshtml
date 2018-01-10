@@ -1,0 +1,76 @@
+﻿@using System.Activities.Expressions
+@model MaerskLine.Models.OrderScheduleViewModel
+
+@{
+    ViewBag.Title = "OrderForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Order Form</h1>
+
+<br/>
+
+@using (Html.BeginForm("SaveOrder", "Order"))
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Schedule ID</th>
+            <th>Origin</th>
+            <th>Destination</th>
+            <th>Departure DateTime</th>
+            <th>Arrival DateTime</th>
+            <th>Ship Name</th>
+            <th>Lot Number</th>
+        </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>@Model.Schedule.ScheduleID</td>
+                <td>@Model.Schedule.ScheduleOrigin</td>
+                <td>@Model.Schedule.ScheduleDestination</td>
+                <td>@Model.Schedule.ScheduleDepartureDateTime</td>
+                <td>@Model.Schedule.ScheduleArrivalDateTime</td>
+                <td>@Model.Schedule.Ship.ShipName</td>
+                <td>@Model.Schedule.Ship.ShipLotNum</td>
+            </tr>
+        </tbody>
+    </table>
+
+    @*<div class="form-group">
+        @Html.TextBoxFor(m => m.Schedule.ScheduleID)
+        @Html.TextBoxFor(m => m.Schedule.ScheduleOrigin)
+        @Html.TextBoxFor(m => m.Schedule.ScheduleDestination)
+        @Html.TextBoxFor(m => m.Schedule.ScheduleDepartureDateTime)
+        @Html.TextBoxFor(m => m.Schedule.ScheduleArrivalDateTime)
+        @Html.TextBoxFor(m => m.Schedule.Ship.ShipName)
+        @Html.TextBoxFor(m => m.Schedule.Ship.ShipLotNum)
+    </div>*@
+
+    @Html.HiddenFor(m => m.Schedule.ScheduleID)
+
+    @*@Html.HiddenFor(m => m.Order.Schedule.ScheduleID)*@
+
+    @Html.HiddenFor(m => m.Order.orderID)
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Order.orderCustomerName)
+        @Html.TextBoxFor(m => m.Order.orderCustomerName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Order.orderDetail)
+        @Html.TextBoxFor(m => m.Order.orderDetail, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Order.orderLotNum)
+        @Html.TextBoxFor(m => m.Order.orderLotNum, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn-primary">Save</button>
+}
+
+<hr/>
+

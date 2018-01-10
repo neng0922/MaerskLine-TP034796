@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "ViewOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>View Order</h1>
+
+<br />
+
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Order ID</th>
+        <th>Customer Name</th>
+        <th>Order Details</th>
+        <th>Required Lot Number</th>
+        <th>Origin</th>
+        <th>Destination</th>
+        <th>Departure DateTime</th>
+        <th>Arrival DateTime</th>
+        <th>Ship Name</th>
+        <th>Order Delivered</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    @foreach (var order in Model)
+    {
+        <tr>
+            <td>@order.orderID</td>
+            <td>@order.orderCustomerName</td>
+            <td>@order.orderDetail</td>
+            <td>@order.orderLotNum</td>
+            <td>@order.Schedule.ScheduleOrigin</td>
+            <td>@order.Schedule.ScheduleDestination</td>
+            <td>@order.Schedule.ScheduleDepartureDateTime</td>
+            <td>@order.Schedule.ScheduleArrivalDateTime</td>
+            <td>@order.Schedule.Ship.ShipName</td>
+            <td>@order.orderDelivered</td>
+
+        </tr>
+    }
+    </tbody>
+</table>
+
+<hr/>
+

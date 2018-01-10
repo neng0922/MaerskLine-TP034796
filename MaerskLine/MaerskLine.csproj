@@ -253,12 +253,21 @@
     <Compile Include="Migrations\201801091608319_scheduleIncludeShipObject.Designer.cs">
       <DependentUpon>201801091608319_scheduleIncludeShipObject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801100646367_orderUpdated.cs" />
+    <Compile Include="Migrations\201801100646367_orderUpdated.Designer.cs">
+      <DependentUpon>201801100646367_orderUpdated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801100817187_orderScheduleObject.cs" />
+    <Compile Include="Migrations\201801100817187_orderScheduleObject.Designer.cs">
+      <DependentUpon>201801100817187_orderScheduleObject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderScheduleViewModel.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Ship.cs" />
     <Compile Include="Models\ShipScheduleViewModal.cs" />
@@ -468,12 +477,14 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Customer\haha.cshtml" />
-    <Content Include="Views\Order\Random.cshtml" />
     <Content Include="Views\Ship\ShipForm.cshtml" />
     <Content Include="Views\Ship\ViewShip.cshtml" />
     <Content Include="Views\Ship\DeleteShip.cshtml" />
     <Content Include="Views\Schedule\ScheduleForm.cshtml" />
     <Content Include="Views\Schedule\ViewSchedule.cshtml" />
+    <Content Include="Views\Order\SelectSchedule.cshtml" />
+    <Content Include="Views\Order\OrderForm.cshtml" />
+    <Content Include="Views\Order\ViewOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -518,6 +529,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801091608319_scheduleIncludeShipObject.resx">
       <DependentUpon>201801091608319_scheduleIncludeShipObject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801100646367_orderUpdated.resx">
+      <DependentUpon>201801100646367_orderUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801100817187_orderScheduleObject.resx">
+      <DependentUpon>201801100817187_orderScheduleObject.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
