@@ -139,8 +139,8 @@ namespace MaerskLine.Controllers
 
         //
         // GET: /Account/Register
-        //[AllowAnonymous]
-        [Authorize(Roles = "Admin")]
+        [AllowAnonymous]
+        //[Authorize(Roles = "Admin")]
         public ActionResult Register()
         {
             return View();
@@ -159,7 +159,7 @@ namespace MaerskLine.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    //// ken: to create role
+                    // ken: to create role
                     //var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
                     //var roleManager = new RoleManager<IdentityRole>(roleStore);
                     //roleManager.CreateAsync(new IdentityRole("Admin"));

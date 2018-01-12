@@ -206,89 +206,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801050958406_InitialModel.cs" />
-    <Compile Include="Migrations\201801050958406_InitialModel.Designer.cs">
-      <DependentUpon>201801050958406_InitialModel.cs</DependentUpon>
+    <Compile Include="Migrations\201801120911199_init.cs" />
+    <Compile Include="Migrations\201801120911199_init.Designer.cs">
+      <DependentUpon>201801120911199_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801051505365_SeedUsers.cs" />
-    <Compile Include="Migrations\201801051505365_SeedUsers.Designer.cs">
-      <DependentUpon>201801051505365_SeedUsers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801061015182_DbML3.cs" />
-    <Compile Include="Migrations\201801061015182_DbML3.Designer.cs">
-      <DependentUpon>201801061015182_DbML3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801061027552_DbMLorder.cs" />
-    <Compile Include="Migrations\201801061027552_DbMLorder.Designer.cs">
-      <DependentUpon>201801061027552_DbMLorder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801061355154_DbML31.cs" />
-    <Compile Include="Migrations\201801061355154_DbML31.Designer.cs">
-      <DependentUpon>201801061355154_DbML31.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801061439210_DbMLbool.cs" />
-    <Compile Include="Migrations\201801061439210_DbMLbool.Designer.cs">
-      <DependentUpon>201801061439210_DbMLbool.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801080726047_ship.cs" />
-    <Compile Include="Migrations\201801080726047_ship.Designer.cs">
-      <DependentUpon>201801080726047_ship.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801091128313_splitShipAndSchedule.cs" />
-    <Compile Include="Migrations\201801091128313_splitShipAndSchedule.Designer.cs">
-      <DependentUpon>201801091128313_splitShipAndSchedule.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801091131204_splitShipAndSchedule2.cs" />
-    <Compile Include="Migrations\201801091131204_splitShipAndSchedule2.Designer.cs">
-      <DependentUpon>201801091131204_splitShipAndSchedule2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801091314369_scheduleAvailability.cs" />
-    <Compile Include="Migrations\201801091314369_scheduleAvailability.Designer.cs">
-      <DependentUpon>201801091314369_scheduleAvailability.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801091317228_scheduleAvailabilityBool.cs" />
-    <Compile Include="Migrations\201801091317228_scheduleAvailabilityBool.Designer.cs">
-      <DependentUpon>201801091317228_scheduleAvailabilityBool.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801091608319_scheduleIncludeShipObject.cs" />
-    <Compile Include="Migrations\201801091608319_scheduleIncludeShipObject.Designer.cs">
-      <DependentUpon>201801091608319_scheduleIncludeShipObject.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801100646367_orderUpdated.cs" />
-    <Compile Include="Migrations\201801100646367_orderUpdated.Designer.cs">
-      <DependentUpon>201801100646367_orderUpdated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801100817187_orderScheduleObject.cs" />
-    <Compile Include="Migrations\201801100817187_orderScheduleObject.Designer.cs">
-      <DependentUpon>201801100817187_orderScheduleObject.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801101701589_shipLotNumRemaining.cs" />
-    <Compile Include="Migrations\201801101701589_shipLotNumRemaining.Designer.cs">
-      <DependentUpon>201801101701589_shipLotNumRemaining.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801101825568_requiredFields.cs" />
-    <Compile Include="Migrations\201801101825568_requiredFields.Designer.cs">
-      <DependentUpon>201801101825568_requiredFields.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801110815086_customerAndContainerTable.cs" />
-    <Compile Include="Migrations\201801110815086_customerAndContainerTable.Designer.cs">
-      <DependentUpon>201801110815086_customerAndContainerTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801110824472_lotToContainer.cs" />
-    <Compile Include="Migrations\201801110824472_lotToContainer.Designer.cs">
-      <DependentUpon>201801110824472_lotToContainer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801120715570_containerCustomerID.cs" />
-    <Compile Include="Migrations\201801120715570_containerCustomerID.Designer.cs">
-      <DependentUpon>201801120715570_containerCustomerID.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801120718145_containers.cs" />
-    <Compile Include="Migrations\201801120718145_containers.Designer.cs">
-      <DependentUpon>201801120718145_containers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801120720363_containercustID.cs" />
-    <Compile Include="Migrations\201801120720363_containercustID.Designer.cs">
-      <DependentUpon>201801120720363_containercustID.cs</DependentUpon>
+    <Compile Include="Migrations\201801120932229_SeedUsers.cs" />
+    <Compile Include="Migrations\201801120932229_SeedUsers.Designer.cs">
+      <DependentUpon>201801120932229_SeedUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -525,68 +449,11 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801050958406_InitialModel.resx">
-      <DependentUpon>201801050958406_InitialModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801120911199_init.resx">
+      <DependentUpon>201801120911199_init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801051505365_SeedUsers.resx">
-      <DependentUpon>201801051505365_SeedUsers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801061015182_DbML3.resx">
-      <DependentUpon>201801061015182_DbML3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801061027552_DbMLorder.resx">
-      <DependentUpon>201801061027552_DbMLorder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801061355154_DbML31.resx">
-      <DependentUpon>201801061355154_DbML31.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801061439210_DbMLbool.resx">
-      <DependentUpon>201801061439210_DbMLbool.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801080726047_ship.resx">
-      <DependentUpon>201801080726047_ship.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801091128313_splitShipAndSchedule.resx">
-      <DependentUpon>201801091128313_splitShipAndSchedule.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801091131204_splitShipAndSchedule2.resx">
-      <DependentUpon>201801091131204_splitShipAndSchedule2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801091314369_scheduleAvailability.resx">
-      <DependentUpon>201801091314369_scheduleAvailability.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801091317228_scheduleAvailabilityBool.resx">
-      <DependentUpon>201801091317228_scheduleAvailabilityBool.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801091608319_scheduleIncludeShipObject.resx">
-      <DependentUpon>201801091608319_scheduleIncludeShipObject.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801100646367_orderUpdated.resx">
-      <DependentUpon>201801100646367_orderUpdated.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801100817187_orderScheduleObject.resx">
-      <DependentUpon>201801100817187_orderScheduleObject.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801101701589_shipLotNumRemaining.resx">
-      <DependentUpon>201801101701589_shipLotNumRemaining.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801101825568_requiredFields.resx">
-      <DependentUpon>201801101825568_requiredFields.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801110815086_customerAndContainerTable.resx">
-      <DependentUpon>201801110815086_customerAndContainerTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801110824472_lotToContainer.resx">
-      <DependentUpon>201801110824472_lotToContainer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801120715570_containerCustomerID.resx">
-      <DependentUpon>201801120715570_containerCustomerID.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801120718145_containers.resx">
-      <DependentUpon>201801120718145_containers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801120720363_containercustID.resx">
-      <DependentUpon>201801120720363_containercustID.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801120932229_SeedUsers.resx">
+      <DependentUpon>201801120932229_SeedUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -7,13 +7,13 @@ namespace MaerskLine.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class scheduleAvailability : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(scheduleAvailability));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201801091314369_scheduleAvailability"; }
+            get { return "201801120911199_init"; }
         }
         
         string IMigrationMetadata.Source

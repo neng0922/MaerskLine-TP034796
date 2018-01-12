@@ -10,25 +10,17 @@ namespace MaerskLine.Models
 	{
 		[Key]
 		[Display(Name = "Order ID")]
-		public int orderID { get; set; }
-
-	    [Required]
-        [Display(Name = "Customer Name")]
-		public String orderCustomerName { get; set; }
-
-	    [Required]
-        [Display(Name = "Order Details")]
-		public String orderDetail { get; set; }
-
-	    [Required]
-        [Display(Name = "Required Container Number")]
-		public int orderContainerNum { get; set; }
+		public int OrderID { get; set; }
 
 		[Display(Name = "Order Delivered")]
-		public bool orderDelivered { get; set; }
+		public bool OrderDelivered { get; set; }
 
 		public int ScheduleID { get; set; }
 
 		public Schedule Schedule { get; set; }
+
+	    public int ContainerID { get; set; }
+
+	    public Container Container { get; set; }
 	}
 }

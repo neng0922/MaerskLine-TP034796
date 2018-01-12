@@ -15,6 +15,9 @@ namespace MaerskLine.Models
         public int ContainerItem { get; set; }
 
         [Required]
+        public int ContainerNum { get; set; }
+
+        [Required]
         public double ContainerWeight { get; set; }
 
         public int CustID { get; set; }
