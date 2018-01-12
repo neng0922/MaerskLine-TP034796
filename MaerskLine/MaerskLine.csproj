@@ -221,10 +221,10 @@
     <Compile Include="Models\IdentityModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\OrderScheduleViewModel.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Ship.cs" />
-    <Compile Include="Models\ShipScheduleViewModal.cs" />
+    <Compile Include="ViewModel\ScheduleCustomerOrderViewModel.cs" />
+    <Compile Include="ViewModel\ShipScheduleViewModal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\CustomerOrderViewModel.cs" />
@@ -439,6 +439,8 @@
     <Content Include="Views\Order\SelectSchedule.cshtml" />
     <Content Include="Views\Order\OrderForm.cshtml" />
     <Content Include="Views\Order\ViewOrder.cshtml" />
+    <Content Include="Views\Customer\ViewCustomer.cshtml" />
+    <Content Include="Views\Order\SelectCustomer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

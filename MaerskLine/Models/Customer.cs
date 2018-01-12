@@ -13,14 +13,17 @@ namespace MaerskLine.Models
         public int CustID { get; set; }
 
         [Required]
+        [Display(Name = "Customer Name")]
         public String CustName { get; set; }
 
         [Required]
         [Phone]
+        [Display(Name = "Phone Number")]
         public String CustPhoneNum { get; set; }
 
         [Required]
         [EmailAddress]
+        [Display(Name = "Email Address")]
         public String CustEmail { get; set; }
 
         [Required]

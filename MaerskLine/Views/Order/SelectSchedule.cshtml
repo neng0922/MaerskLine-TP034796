@@ -1,4 +1,5 @@
-﻿
+﻿@
+
 @{
     ViewBag.Title = "SelectSchedule";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -18,13 +19,12 @@
             <th>Arrival DateTime</th>
             <th>Ship ID</th>
             <th>Ship Name</th>
+            <th>Select Customer</th>
             <th>Select Schedule</th>
         </tr>
     </thead>
 
     <tbody>
-        @foreach (var schedule in Model)
-        {
             <tr>
                 <td>@schedule.ScheduleID</td>
                 <td>@schedule.ScheduleOrigin</td>
@@ -33,9 +33,8 @@
                 <td>@schedule.ScheduleArrivalDateTime</td>
                 <td>@schedule.ShipID</td>
                 <td>@schedule.Ship.ShipName</td>
-                <td>@Html.ActionLink("Select", "OrderForm", "Order", new { scheduleID = schedule.ScheduleID }, null)</td>
-                @*<td>@Html.ActionLink("Delete", "EditShip", "Ship", new { shipID = ship.ShipID }, null)</td>*@
+                <td>@Html.DropDownListFor(m => m.Schedule.ShipID, new SelectList(Model.Ships, "ShipID", "ShipName"), new {@class = "form-control" })</td>
+                <td>@Html.ActionLink("Select", "SelectCustomer", "Order", new { scheduleID = schedule.ScheduleID }, null)</td>
             </tr>
-        }
     </tbody>
 </table>

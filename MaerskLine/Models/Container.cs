@@ -12,12 +12,15 @@ namespace MaerskLine.Models
         public int ContainerID { get; set; }
 
         [Required]
+        [Display(Name = "Item to deliver")]
         public int ContainerItem { get; set; }
-
+      
         [Required]
+        [Display(Name = "Number of containers")]
         public int ContainerNum { get; set; }
 
         [Required]
+        [Display(Name = "Weight of containers")]
         public double ContainerWeight { get; set; }
 
         public int CustID { get; set; }

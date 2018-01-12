@@ -33,21 +33,36 @@ namespace MaerskLine.Controllers
             return View(schedule);
         }
 
-        public ActionResult OrderForm(int scheduleID)
+        public ActionResult SelectCustomer(int scheduleID)
         {
             var schedule = dbContext.Schedules.Include(s => s.Ship).SingleOrDefault(c => c.ScheduleID == scheduleID);
 
-            if (schedule == null)
-            {
-                return HttpNotFound();
-            }
+            var customer = dbContext.Customers.ToList();
 
-            OrderScheduleViewModel osvm = new OrderScheduleViewModel
+            ScheduleCustomerOrderViewModel scovm = new ScheduleCustomerOrderViewModel()
             {
-                Schedule = schedule
+                Schedule = schedule,
+                Customers = customer
             };
 
-            return View(osvm);
+            return View(scovm);
+        }
+
+        public ActionResult OrderForm()
+        {
+            //var schedule = dbContext.Schedules.Include(s => s.Ship).SingleOrDefault(c => c.ScheduleID == scheduleID);
+
+            //if (schedule == null)
+            //{
+            //    return HttpNotFound();
+            //}
+
+            //OrderScheduleViewModel osvm = new OrderScheduleViewModel
+            //{
+            //    Schedule = schedule
+            //};
+
+            return View();
         }
 
         //public ActionResult SaveOrder(OrderScheduleViewModel osvm)
@@ -90,5 +105,6 @@ namespace MaerskLine.Controllers
 
             return View(order);
         }
+
     }
 }

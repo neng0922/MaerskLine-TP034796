@@ -139,8 +139,8 @@ namespace MaerskLine.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
-        //[Authorize(Roles = "Admin")]
+        //[AllowAnonymous]
+        [Authorize(Roles = "Admin")]
         public ActionResult Register()
         {
             return View();
@@ -149,7 +149,7 @@ namespace MaerskLine.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
-        [AllowAnonymous]
+        //[AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
