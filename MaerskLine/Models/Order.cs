@@ -21,8 +21,8 @@ namespace MaerskLine.Models
 		public String orderDetail { get; set; }
 
 	    [Required]
-        [Display(Name = "Required Lot Number")]
-		public int orderLotNum { get; set; }
+        [Display(Name = "Required Container Number")]
+		public int orderContainerNum { get; set; }
 
 		[Display(Name = "Order Delivered")]
 		public bool orderDelivered { get; set; }

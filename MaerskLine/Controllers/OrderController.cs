@@ -56,14 +56,14 @@ namespace MaerskLine.Controllers
             {
                 orderCustomerName = osvm.Order.orderCustomerName,
                 orderDetail = osvm.Order.orderDetail,
-                orderLotNum = osvm.Order.orderLotNum,
+                orderContainerNum = osvm.Order.orderContainerNum,
                 ScheduleID = osvm.Schedule.ScheduleID,
                
             };
 
-            var getLotNum = dbContext.Ships.SingleOrDefault(c => c.ShipID == osvm.Schedule.ShipID);
+            var getContainerNum = dbContext.Ships.SingleOrDefault(c => c.ShipID == osvm.Schedule.ShipID);
 
-            if (osvm.Order.orderLotNum > getLotNum.ShipLotNumRemaining)
+            if (osvm.Order.orderContainerNum > getContainerNum.ShipContainerNumRemaining)
             {
                 // false
 
@@ -71,7 +71,7 @@ namespace MaerskLine.Controllers
             }
             else
             {
-                getLotNum.ShipLotNumRemaining -= osvm.Order.orderLotNum;
+                getContainerNum.ShipContainerNumRemaining -= osvm.Order.orderContainerNum;
 
                 dbContext.Orders.Add(order);
 

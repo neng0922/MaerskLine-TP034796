@@ -17,11 +17,11 @@ namespace MaerskLine.Models
         public String ShipName { get; set; }
 
         [Required]
-        [Display(Name = "Number of Lots")]
-        public int ShipLotNum { get; set; }
+        [Display(Name = "Number of Containers")]
+        public int ShipContainerNum { get; set; }
 
-        [Display(Name = "Remaining Lots")]
-        public int ShipLotNumRemaining { get; set; }
+        [Display(Name = "Remaining Containers")]
+        public int ShipContainerNumRemaining { get; set; }
 
         [Display(Name = "Availability")]
         public Boolean ShipAvailability { get; set; }

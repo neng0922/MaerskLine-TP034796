@@ -33,7 +33,7 @@ namespace MaerskLine.Controllers
         {
             if (ship.ShipID == 0)
             {
-                ship.ShipLotNumRemaining = ship.ShipLotNum;
+                ship.ShipContainerNumRemaining = ship.ShipContainerNum;
 
                 dbContext.Ships.Add(ship);
             }
@@ -43,8 +43,8 @@ namespace MaerskLine.Controllers
 
                 //shipInDB.ShipID = ship.ShipID;
                 shipInDB.ShipName = ship.ShipName;
-                shipInDB.ShipLotNum = ship.ShipLotNum;
-                shipInDB.ShipLotNumRemaining = shipInDB.ShipLotNumRemaining;
+                shipInDB.ShipContainerNum = ship.ShipContainerNum;
+                shipInDB.ShipContainerNumRemaining = shipInDB.ShipContainerNumRemaining;
                 shipInDB.ShipAvailability = ship.ShipAvailability;
             }
             
@@ -77,7 +77,7 @@ namespace MaerskLine.Controllers
             Ship shipModel = new Ship();
             shipModel.ShipID = ship.ShipID;
             shipModel.ShipName = ship.ShipName;
-            shipModel.ShipLotNum = ship.ShipLotNum;
+            shipModel.ShipContainerNum = ship.ShipContainerNum;
             //shipModel.ShipOrigin = ship.ShipOrigin;
             //shipModel.ShipDestination = ship.ShipDestination;
             //shipModel.ShipDepartingTime = ship.ShipDepartingTime;

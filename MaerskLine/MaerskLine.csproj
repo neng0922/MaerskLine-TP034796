@@ -196,6 +196,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ContainerController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -269,8 +270,29 @@
     <Compile Include="Migrations\201801101825568_requiredFields.Designer.cs">
       <DependentUpon>201801101825568_requiredFields.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801110815086_customerAndContainerTable.cs" />
+    <Compile Include="Migrations\201801110815086_customerAndContainerTable.Designer.cs">
+      <DependentUpon>201801110815086_customerAndContainerTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801110824472_lotToContainer.cs" />
+    <Compile Include="Migrations\201801110824472_lotToContainer.Designer.cs">
+      <DependentUpon>201801110824472_lotToContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801120715570_containerCustomerID.cs" />
+    <Compile Include="Migrations\201801120715570_containerCustomerID.Designer.cs">
+      <DependentUpon>201801120715570_containerCustomerID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801120718145_containers.cs" />
+    <Compile Include="Migrations\201801120718145_containers.Designer.cs">
+      <DependentUpon>201801120718145_containers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801120720363_containercustID.cs" />
+    <Compile Include="Migrations\201801120720363_containercustID.Designer.cs">
+      <DependentUpon>201801120720363_containercustID.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Container.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -484,7 +506,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Customer\haha.cshtml" />
+    <Content Include="Views\Customer\CustomerForm.cshtml" />
     <Content Include="Views\Ship\ShipForm.cshtml" />
     <Content Include="Views\Ship\ViewShip.cshtml" />
     <Content Include="Views\Ship\DeleteShip.cshtml" />
@@ -496,6 +518,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Container\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -549,6 +572,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801101825568_requiredFields.resx">
       <DependentUpon>201801101825568_requiredFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801110815086_customerAndContainerTable.resx">
+      <DependentUpon>201801110815086_customerAndContainerTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801110824472_lotToContainer.resx">
+      <DependentUpon>201801110824472_lotToContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801120715570_containerCustomerID.resx">
+      <DependentUpon>201801120715570_containerCustomerID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801120718145_containers.resx">
+      <DependentUpon>201801120718145_containers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801120720363_containercustID.resx">
+      <DependentUpon>201801120720363_containercustID.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
