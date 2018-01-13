@@ -29,14 +29,14 @@
     <div class="form-group input-group date bootstrap-datetimepicker-widget">
         @Html.LabelFor(m => m.Schedule.ScheduleDepartureDateTime)
         @Html.TextBoxFor(m => m.Schedule.ScheduleDepartureDateTime, new { id = "departureTimePicker", @class = "form-control" })
-        <div id="test">@Html.ValidationMessageFor(m => m.Schedule.ScheduleDepartureDateTime)</div>
+        <div>@Html.ValidationMessageFor(m => m.Schedule.ScheduleDepartureDateTime)</div>
 
     </div>
 
     <div class="form-group input-group date bootstrap-datetimepicker-widget">
         @Html.LabelFor(m => m.Schedule.ScheduleArrivalDateTime)
         @Html.TextBoxFor(m => m.Schedule.ScheduleArrivalDateTime, new { id = "arrivalTimePicker", @class = "form-control" })
-        <div id="test">@Html.ValidationMessageFor(m => m.Schedule.ScheduleArrivalDateTime)</div>
+        <div>@Html.ValidationMessageFor(m => m.Schedule.ScheduleArrivalDateTime)</div>
     </div>
 
     <div class="form-group">
