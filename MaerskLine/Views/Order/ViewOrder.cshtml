@@ -1,4 +1,5 @@
-﻿
+﻿@*@model MaerskLine.ViewModel.ScheduleCustomerOrderViewModel*@
+
 @{
     ViewBag.Title = "ViewOrder";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -12,33 +13,58 @@
     <thead>
     <tr>
         <th>Order ID</th>
-        <th>Customer Name</th>
-        <th>Order Details</th>
-        <th>Required Container Number</th>
+        
+        <th>Container ID</th>
+        <th>Container Item</th>
+        <th>Container Number</th>
+        <th>Container Weight</th>
+
+        <th>Schedule ID</th>
         <th>Origin</th>
         <th>Destination</th>
         <th>Departure DateTime</th>
         <th>Arrival DateTime</th>
+
+        <th>Ship ID</th>
         <th>Ship Name</th>
+
+        <th>Customer ID</th>
+        <th>Customer Name</th>
+        <th>Customer Phone Number</th>
+        <th>Customer Email</th>
+        <th>Customer Agent</th>
+
         <th>Order Delivered</th>
     </tr>
     </thead>
 
     <tbody>
-    @foreach (var order in Model)
+    @foreach (var container in Model)
     {
         <tr>
-            <td>@order.orderID</td>
-            <td>@order.orderCustomerName</td>
-            <td>@order.orderDetail</td>
-            <td>@order.orderContainerNum</td>
-            <td>@order.Schedule.ScheduleOrigin</td>
-            <td>@order.Schedule.ScheduleDestination</td>
-            <td>@order.Schedule.ScheduleDepartureDateTime</td>
-            <td>@order.Schedule.ScheduleArrivalDateTime</td>
-            <td>@order.Schedule.Ship.ShipName</td>
-            <td>@order.orderDelivered</td>
+            <td>@container.OrderID</td>
 
+            <td>@container.ContainerID</td>
+            <td>@container.ContainerItem</td>
+            <td>@container.ContainerNum</td>
+            <td>@container.ContainerWeight</td>
+
+            <td>@container.Order.ScheduleID</td>
+            <td>@container.Order.Schedule.ScheduleOrigin</td>
+            <td>@container.Order.Schedule.ScheduleDestination</td>
+            <td>@container.Order.Schedule.ScheduleDepartureDateTime</td>
+            <td>@container.Order.Schedule.ScheduleArrivalDateTime</td>
+
+            <td>@container.Order.Schedule.ShipID</td>
+            <td>@container.Order.Schedule.Ship.ShipName</td>
+
+            <td>@container.Order.CustID</td>
+            <td>@container.Order.Customer.CustName</td>
+            <td>@container.Order.Customer.CustPhoneNum</td>
+            <td>@container.Order.Customer.CustEmail</td>
+            <td>@container.Order.Customer.CustAgent</td>
+
+            <td>@container.Order.OrderDelivered</td>
         </tr>
     }
     </tbody>

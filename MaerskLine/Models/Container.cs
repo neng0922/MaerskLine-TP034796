@@ -13,7 +13,7 @@ namespace MaerskLine.Models
 
         [Required]
         [Display(Name = "Item to deliver")]
-        public int ContainerItem { get; set; }
+        public string ContainerItem { get; set; }
       
         [Required]
         [Display(Name = "Number of containers")]
@@ -23,8 +23,8 @@ namespace MaerskLine.Models
         [Display(Name = "Weight of containers")]
         public double ContainerWeight { get; set; }
 
-        public int CustID { get; set; }
+        public int OrderID { get; set; }
 
-        public Customer Customer { get; set; }
+        public Order Order { get; set; }
     }
 }

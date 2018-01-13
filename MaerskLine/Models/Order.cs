@@ -19,8 +19,9 @@ namespace MaerskLine.Models
 
 		public Schedule Schedule { get; set; }
 
-	    public int ContainerID { get; set; }
+	    public int CustID { get; set; }
 
-	    public Container Container { get; set; }
+	    public Customer Customer { get; set; }
+
 	}
 }

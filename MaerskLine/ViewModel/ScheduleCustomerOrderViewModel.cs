@@ -12,6 +12,12 @@ namespace MaerskLine.ViewModel
 
         public List<Customer> Customers { get; set; }
 
+        public Customer Customer { get; set; }
+
+        public List<Container> Containers { get; set; }
+
+        public Container Container { get; set; }
+
         public Order Order { get; set; }
     }
 }

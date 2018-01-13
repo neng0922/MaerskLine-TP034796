@@ -1,5 +1,4 @@
-﻿@using System.Activities.Expressions
-@model MaerskLine.Models.OrderScheduleViewModel
+﻿@model MaerskLine.ViewModel.ScheduleCustomerOrderViewModel
 
 @{
     ViewBag.Title = "OrderForm";
@@ -10,7 +9,7 @@
 
 <br/>
 
-@*@using (Html.BeginForm("SaveOrder", "Order"))
+@using (Html.BeginForm("SaveOrder", "Order"))
 {
     <table class="table table-bordered table-hover">
         <thead>
@@ -20,23 +19,70 @@
             <th>Destination</th>
             <th>Departure DateTime</th>
             <th>Arrival DateTime</th>
+            <th>Ship ID</th>
             <th>Ship Name</th>
-            <th>Container Number</th>
+            <th>Ship Containers Remaining</th>
         </tr>
         </thead>
 
         <tbody>
-            <tr>
-                <td>@Model.Schedule.ScheduleID</td>
-                <td>@Model.Schedule.ScheduleOrigin</td>
-                <td>@Model.Schedule.ScheduleDestination</td>
-                <td>@Model.Schedule.ScheduleDepartureDateTime</td>
-                <td>@Model.Schedule.ScheduleArrivalDateTime</td>
-                <td>@Model.Schedule.Ship.ShipName</td>
-                <td>@Model.Schedule.Ship.ShipContainerNumRemaining</td>
-            </tr>
+        <tr>
+            <td>@Model.Schedule.ScheduleID</td>
+            <td>@Model.Schedule.ScheduleOrigin</td>
+            <td>@Model.Schedule.ScheduleDestination</td>
+            <td>@Model.Schedule.ScheduleDepartureDateTime</td>
+            <td>@Model.Schedule.ScheduleArrivalDateTime</td>
+            <td>@Model.Schedule.ShipID</td>
+            <td>@Model.Schedule.Ship.ShipName</td>
+            <td>@Model.Schedule.Ship.ShipContainerNumRemaining</td>
+        </tr>
         </tbody>
     </table>
+
+    <hr/>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Customer ID</th>
+            <th>Customer Name</th>
+            <th>Phone Number</th>
+            <th>Email Address</th>
+            <th>Agent</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>@Model.Customer.CustID</td>
+            <td>@Model.Customer.CustName</td>
+            <td>@Model.Customer.CustPhoneNum</td>
+            <td>@Model.Customer.CustEmail</td>
+            <td>@Model.Customer.CustAgent</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <hr/>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Container.ContainerItem)
+        @Html.TextBoxFor(m => m.Container.ContainerItem, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Container.ContainerItem)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Container.ContainerNum)
+        @Html.TextBoxFor(m => m.Container.ContainerNum, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Container.ContainerNum)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Container.ContainerWeight)
+        @Html.TextBoxFor(m => m.Container.ContainerWeight, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Container.ContainerWeight)
+    </div>
 
     @Html.HiddenFor(m => m.Schedule.ScheduleID)
     @Html.HiddenFor(m => m.Schedule.ScheduleOrigin)
@@ -48,28 +94,18 @@
     @Html.HiddenFor(m => m.Schedule.Ship.ShipName)
     @Html.HiddenFor(m => m.Schedule.Ship.ShipContainerNumRemaining)
 
-    @Html.HiddenFor(m => m.Order.orderID)
+    @Html.HiddenFor(m => m.Customer.CustID)
+    @Html.HiddenFor(m => m.Customer.CustName)
+    @Html.HiddenFor(m => m.Customer.CustPhoneNum)
+    @Html.HiddenFor(m => m.Customer.CustEmail)
+    @Html.HiddenFor(m => m.Customer.CustAgent)
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.Order.orderCustomerName)
-        @Html.TextBoxFor(m => m.Order.orderCustomerName, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Order.orderCustomerName)
-    </div>
+    @Html.HiddenFor(m => m.Container.ContainerID)
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.Order.orderDetail)
-        @Html.TextBoxFor(m => m.Order.orderDetail, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Order.orderDetail)
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.Order.orderContainerNum)
-        @Html.TextBoxFor(m => m.Order.orderContainerNum, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Order.orderContainerNum)
-    </div>
+    @Html.HiddenFor(m => m.Order.OrderID)
 
     <button type="submit" class="btn-primary">Save</button>
-}*@
+}
 
 <hr/>
 

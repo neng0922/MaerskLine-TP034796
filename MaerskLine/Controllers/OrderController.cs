@@ -48,62 +48,72 @@ namespace MaerskLine.Controllers
             return View(scovm);
         }
 
-        public ActionResult OrderForm()
+        public ActionResult OrderForm(int custID, int scheduleID)
         {
-            //var schedule = dbContext.Schedules.Include(s => s.Ship).SingleOrDefault(c => c.ScheduleID == scheduleID);
+            var customer = dbContext.Customers.SingleOrDefault(c => c.CustID == custID);
 
-            //if (schedule == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            var schedule = dbContext.Schedules.Include(s => s.Ship).SingleOrDefault(c => c.ScheduleID == scheduleID);
 
-            //OrderScheduleViewModel osvm = new OrderScheduleViewModel
-            //{
-            //    Schedule = schedule
-            //};
+            ScheduleCustomerOrderViewModel scovm = new ScheduleCustomerOrderViewModel()
+            {
+                Schedule = schedule,
+                Customer = customer
+            };
 
-            return View();
+            return View(scovm);
         }
 
-        //public ActionResult SaveOrder(OrderScheduleViewModel osvm)
-        //{
-        //    var order = new Order
-        //    {
-        //        orderCustomerName = osvm.Order.orderCustomerName,
-        //        orderDetail = osvm.Order.orderDetail,
-        //        orderContainerNum = osvm.Order.orderContainerNum,
-        //        ScheduleID = osvm.Schedule.ScheduleID,
-               
-        //    };
+        public ActionResult SaveOrder(ScheduleCustomerOrderViewModel scovm)
+        {
+            var order = new Order
+            {
+                ScheduleID = scovm.Schedule.ScheduleID,
+                CustID = scovm.Customer.CustID
+            };
 
-        //    var getContainerNum = dbContext.Ships.SingleOrDefault(c => c.ShipID == osvm.Schedule.ShipID);
+            var container = new Container()
+            {
+                ContainerID = scovm.Container.ContainerID,
+                ContainerItem = scovm.Container.ContainerItem,
+                ContainerNum = scovm.Container.ContainerNum,
+                ContainerWeight = scovm.Container.ContainerWeight,
+                OrderID = scovm.Order.OrderID
+            };
 
-        //    if (osvm.Order.orderContainerNum > getContainerNum.ShipContainerNumRemaining)
-        //    {
-        //        // false
+            var getContainerNum = dbContext.Ships.SingleOrDefault(c => c.ShipID == scovm.Schedule.ShipID);
 
-        //        return View("OrderForm",osvm);
-        //    }
-        //    else
-        //    {
-        //        getContainerNum.ShipContainerNumRemaining -= osvm.Order.orderContainerNum;
+            if (container.ContainerNum > getContainerNum.ShipContainerNumRemaining)
+            {
+                // false
 
-        //        dbContext.Orders.Add(order);
+                return View("OrderForm", scovm);
+            }
+            else
+            {
+                getContainerNum.ShipContainerNumRemaining -= scovm.Container.ContainerNum;
 
-        //        dbContext.SaveChanges();
+                dbContext.Orders.Add(order);
 
-        //        var orderList = dbContext.Orders.Include(s => s.Schedule.Ship).Include(s => s.Schedule).ToList();
+                dbContext.Containers.Add(container);
 
-        //        return View("ViewOrder", orderList);
-        //    }
-            
-        //}
+                dbContext.SaveChanges();
+
+                //var orderList = dbContext.Orders.Include(s => s.Schedule.Ship).Include(s => s.Schedule).Include(c => c.Customer).ToList();
+
+                var orderList = dbContext.Containers.Include(o => o.Order).Include(s => s.Order.Schedule)
+                    .Include(s => s.Order.Schedule.Ship).Include(s => s.Order.Customer).ToList();
+
+                return View("ViewOrder", orderList);
+            }
+
+        }
 
         public ActionResult ViewOrder()
         {
-            var order = dbContext.Orders.Include(s => s.Schedule).Include(s => s.Schedule.Ship).ToList();
+            var orderList = dbContext.Containers.Include(o => o.Order).Include(s => s.Order.Schedule)
+                .Include(s => s.Order.Schedule.Ship).Include(s => s.Order.Customer).ToList();
 
-            return View(order);
+            return View(orderList);
         }
 
     }
