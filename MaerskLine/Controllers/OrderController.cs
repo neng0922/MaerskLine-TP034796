@@ -52,6 +52,8 @@ namespace MaerskLine.Controllers
         [Authorize]
         public ActionResult OrderForm(int custID, int scheduleID)
         {
+            TempData["OrderFailMsg"] = false;
+
             var customer = dbContext.Customers.SingleOrDefault(c => c.CustID == custID);
 
             var schedule = dbContext.Schedules.Include(s => s.Ship).SingleOrDefault(c => c.ScheduleID == scheduleID);
@@ -90,6 +92,8 @@ namespace MaerskLine.Controllers
             {
                 // false
 
+                TempData["OrderFailMsg"] = true;
+
                 return View("OrderForm", scovm);
             }
             else
@@ -102,12 +106,23 @@ namespace MaerskLine.Controllers
 
                 dbContext.SaveChanges();
 
+                TempData["OrderSuccessMsg"] = true;
+
                 //var orderList = dbContext.Orders.Include(s => s.Schedule.Ship).Include(s => s.Schedule).Include(c => c.Customer).ToList();
+                if (User.IsInRole("Admin"))
+                {
+                    var orderList = dbContext.Containers.Include(o => o.Order).Include(s => s.Order.Schedule)
+                        .Include(s => s.Order.Schedule.Ship).Include(s => s.Order.Customer).ToList();
 
-                var orderList = dbContext.Containers.Include(o => o.Order).Include(s => s.Order.Schedule)
-                    .Include(s => s.Order.Schedule.Ship).Include(s => s.Order.Customer).Where(o => o.Order.OrderAgent == User.Identity.Name).ToList();
+                    return View("ViewOrder",orderList);
+                }
+                else
+                {
+                    var orderList = dbContext.Containers.Include(o => o.Order).Include(s => s.Order.Schedule)
+                        .Include(s => s.Order.Schedule.Ship).Include(s => s.Order.Customer).Where(o => o.Order.OrderAgent == User.Identity.Name).ToList();
 
-                return View("ViewOrder", orderList);
+                    return View("ViewOrder",orderList);
+                }
             }
 
         }
@@ -115,6 +130,7 @@ namespace MaerskLine.Controllers
         [Authorize]
         public ActionResult ViewOrder()
         {
+            TempData["OrderSuccessMsg"] = false;
 
             if (User.IsInRole("Admin"))
             {

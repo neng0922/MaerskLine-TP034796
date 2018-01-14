@@ -60,6 +60,8 @@ namespace MaerskLine.Controllers
 
             dbContext.SaveChanges();
 
+            TempData["ScheduleSuccessMsg"] = true;
+
             var scheduleList = dbContext.Schedules.Include(s => s.Ship).ToList();
 
             return View("ViewSchedule", scheduleList);
@@ -68,6 +70,8 @@ namespace MaerskLine.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult ViewSchedule()
         {
+            TempData["ScheduleSuccessMsg"] = false;
+
             var schedule = dbContext.Schedules.Include(s => s.Ship).ToList();
 
             return View(schedule);

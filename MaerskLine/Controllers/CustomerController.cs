@@ -52,16 +52,27 @@ namespace MaerskLine.Controllers
 
             dbContext.SaveChanges();
 
-            //TempData["AddShipSuccessMsg"] = "<script language='javascript' type='text/javascript'>alert     ('Ship Added Successfully !!!');</script>";
+            TempData["CustomerSuccessMsg"] = true;
 
-            var customerList = dbContext.Customers.Where(c => c.CustAgent == User.Identity.Name).ToList();
+            if (User.IsInRole("Admin"))
+            {
+                var customerList = dbContext.Customers.ToList();
 
-            return View("ViewCustomer", customerList);
+                return View("ViewCustomer", customerList);
+            }
+            else
+            {
+                var customerList = dbContext.Customers.Where(c => c.CustAgent == User.Identity.Name).ToList();
+
+                return View("ViewCustomer", customerList);
+            }
+
         }
 
         [Authorize]
         public ActionResult ViewCustomer()
         {
+            TempData["CustomerSuccessMsg"] = false;
 
             if (User.IsInRole("Admin"))
             {

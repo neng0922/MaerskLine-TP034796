@@ -52,7 +52,7 @@ namespace MaerskLine.Controllers
             
             dbContext.SaveChanges();
 
-            //TempData["AddShipSuccessMsg"] = "<script language='javascript' type='text/javascript'>alert     ('Ship Added Successfully !!!');</script>";
+            ViewBag.ShipSuccessMsg = true;
 
             var shipList = dbContext.Ships.ToList();
 
@@ -62,6 +62,8 @@ namespace MaerskLine.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult ViewShip()
         {
+            ViewBag.ShipSuccessMsg = false;
+
             var ship = dbContext.Ships.ToList();
 
             return View(ship);

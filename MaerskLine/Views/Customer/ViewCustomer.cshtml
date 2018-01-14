@@ -8,6 +8,14 @@
 
 <br />
 
+@if (TempData["CustomerSuccessMsg"].Equals(true))
+{
+    <div class="alert alert-dismissible alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>The customer has been saved SUCCESSFULLY!</strong>
+    </div>
+}
+
 <table id="ViewCustomerTable" class="table table-bordered table-hover">
     <thead>
     <tr>

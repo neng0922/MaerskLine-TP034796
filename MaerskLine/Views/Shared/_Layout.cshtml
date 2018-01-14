@@ -45,7 +45,7 @@
                 <h3>admin mou</h3>
 
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <h4>Manage Ship</h4>
                         <ul>
                             @*name,action,controller*@
@@ -55,12 +55,32 @@
                         </ul>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <h4>Manage Schedule</h4>
                         <ul>
                             @*name,action,controller*@
                             <li>@Html.ActionLink("Add Schedule", "ScheduleForm", "Schedule")</li>
                             <li>@Html.ActionLink("View Schedule", "ViewSchedule", "Schedule")</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <h4>Manage Customer</h4>
+                        <ul>
+                            @*name,action,controller*@
+                            @*<li>@Html.ActionLink("Add Customer", "CustomerForm", "Customer")</li>*@
+                            <li>@Html.ActionLink("View Customer", "ViewCustomer", "Customer")</li>
+                            @*<li>@Html.ActionLink("DeleteShip", "DeleteShip", "Ship")</li>*@
+                        </ul>
+                    </div>
+
+                    <div class="col-md-3">
+                        <h4>Manage Order</h4>
+                        <ul>
+                            @*name,action,controller*@
+                            @*<li>@Html.ActionLink("Add Order", "SelectSchedule", "Order")</li>*@
+                            <li>@Html.ActionLink("View Order", "ViewOrder", "Order")</li>
+                            @*<li>@Html.ActionLink("DeleteShip", "DeleteShip", "Ship")</li>*@
                         </ul>
                     </div>
                 </div>
@@ -70,24 +90,26 @@
             {
                 <h1>not admin mou</h1>
 
-                <div class="col-md-4">
-                    <h4>Manage Customer</h4>
-                    <ul>
-                        @*name,action,controller*@
-                        <li>@Html.ActionLink("Add Customer", "CustomerForm", "Customer")</li>
-                        <li>@Html.ActionLink("View Customer", "ViewCustomer", "Customer")</li>
-                        @*<li>@Html.ActionLink("DeleteShip", "DeleteShip", "Ship")</li>*@
-                    </ul>
-                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4>Manage Customer</h4>
+                        <ul>
+                            @*name,action,controller*@
+                            <li>@Html.ActionLink("Add Customer", "CustomerForm", "Customer")</li>
+                            <li>@Html.ActionLink("View Customer", "ViewCustomer", "Customer")</li>
+                            @*<li>@Html.ActionLink("DeleteShip", "DeleteShip", "Ship")</li>*@
+                        </ul>
+                    </div>
 
-                <div class="col-md-4">
-                    <h4>Manage Order</h4>
-                    <ul>
-                        @*name,action,controller*@
-                        <li>@Html.ActionLink("Add Order", "SelectSchedule", "Order")</li>
-                        <li>@Html.ActionLink("View Order", "ViewOrder", "Order")</li>
-                        @*<li>@Html.ActionLink("DeleteShip", "DeleteShip", "Ship")</li>*@
-                    </ul>
+                    <div class="col-md-4">
+                        <h4>Manage Order</h4>
+                        <ul>
+                            @*name,action,controller*@
+                            <li>@Html.ActionLink("Add Order", "SelectSchedule", "Order")</li>
+                            <li>@Html.ActionLink("View Order", "ViewOrder", "Order")</li>
+                            @*<li>@Html.ActionLink("DeleteShip", "DeleteShip", "Ship")</li>*@
+                        </ul>
+                    </div>
                 </div>
             }
         }
