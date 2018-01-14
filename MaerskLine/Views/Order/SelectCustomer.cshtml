@@ -39,7 +39,7 @@
 
 <hr />
 
-<table class="table table-bordered table-hover">
+<table id="SelectCustomerTable" class="table table-bordered table-hover">
     <thead>
         <tr>
             <th>Customer ID</th>
@@ -69,3 +69,11 @@
 
 <hr />
 
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            $('#SelectCustomerTable').DataTable();
+        });
+    </script>
+}

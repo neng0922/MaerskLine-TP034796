@@ -7,7 +7,7 @@
 
 <br />
 
-<table class="table table-bordered table-hover">
+<table id="SelectScheduleTable" class="table table-bordered table-hover">
     <thead>
     <tr>
         <th>Schedule ID</th>
@@ -42,3 +42,12 @@
 </table>
 
 <hr/>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            $('#SelectScheduleTable').DataTable();
+        });
+    </script>
+}
