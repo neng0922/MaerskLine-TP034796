@@ -23,11 +23,13 @@ namespace MaerskLine.Controllers
         }
 
         // GET: Ship
+        [Authorize(Roles = "Admin")]
         public ActionResult ShipForm()
         {
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult SaveShip(Ship ship)
         {
@@ -57,7 +59,7 @@ namespace MaerskLine.Controllers
             return View("ViewShip", shipList);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult ViewShip()
         {
             var ship = dbContext.Ships.ToList();
@@ -65,6 +67,7 @@ namespace MaerskLine.Controllers
             return View(ship);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult EditShip(int shipID)
         {
             var ship = dbContext.Ships.SingleOrDefault(c => c.ShipID == shipID);
@@ -87,6 +90,7 @@ namespace MaerskLine.Controllers
             return View("ShipForm", shipModel);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteShip()
         {
             return View();

@@ -30,6 +30,7 @@ namespace MaerskLine.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult SaveCustomer(Customer customer)
         {
             var currentUser = User.Identity.Name;
@@ -61,11 +62,20 @@ namespace MaerskLine.Controllers
         [Authorize]
         public ActionResult ViewCustomer()
         {
-            var cust = dbContext.Customers.Where(c => c.CustAgent == User.Identity.Name).ToList();
 
-            return View(cust);
+            if (User.IsInRole("Admin"))
+            {
+                var cust = dbContext.Customers.ToList();
+                return View(cust);
+            }
+            else
+            {
+                var cust = dbContext.Customers.Where(c => c.CustAgent == User.Identity.Name).ToList();
+                return View(cust);
+            }
         }
 
+        [Authorize]
         public ActionResult EditCustomer(int custID)
         {
             var cust = dbContext.Customers.SingleOrDefault(c => c.CustID == custID);

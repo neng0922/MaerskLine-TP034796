@@ -25,14 +25,15 @@ namespace MaerskLine.Controllers
         }
 
         // GET: Order
-
+        [Authorize]
         public ActionResult SelectSchedule()
         {
-            var schedule = dbContext.Schedules.Include(s => s.Ship).ToList();
+            var schedule = dbContext.Schedules.Include(s => s.Ship).Where(s => s.ScheduleAvailability.Equals(true)).ToList();
 
             return View(schedule);
         }
 
+        [Authorize]
         public ActionResult SelectCustomer(int scheduleID)
         {
             var schedule = dbContext.Schedules.Include(s => s.Ship).SingleOrDefault(c => c.ScheduleID == scheduleID);
@@ -48,6 +49,7 @@ namespace MaerskLine.Controllers
             return View(scovm);
         }
 
+        [Authorize]
         public ActionResult OrderForm(int custID, int scheduleID)
         {
             var customer = dbContext.Customers.SingleOrDefault(c => c.CustID == custID);
@@ -63,6 +65,7 @@ namespace MaerskLine.Controllers
             return View(scovm);
         }
 
+        [Authorize]
         public ActionResult SaveOrder(ScheduleCustomerOrderViewModel scovm)
         {
             var order = new Order
@@ -109,12 +112,25 @@ namespace MaerskLine.Controllers
 
         }
 
+        [Authorize]
         public ActionResult ViewOrder()
         {
-            var orderList = dbContext.Containers.Include(o => o.Order).Include(s => s.Order.Schedule)
-                .Include(s => s.Order.Schedule.Ship).Include(s => s.Order.Customer).Where(o => o.Order.OrderAgent == User.Identity.Name).ToList();
 
-            return View(orderList);
+            if (User.IsInRole("Admin"))
+            {
+                var orderList = dbContext.Containers.Include(o => o.Order).Include(s => s.Order.Schedule)
+                    .Include(s => s.Order.Schedule.Ship).Include(s => s.Order.Customer).ToList();
+
+                return View(orderList);
+            }
+            else
+            {
+                var orderList = dbContext.Containers.Include(o => o.Order).Include(s => s.Order.Schedule)
+                    .Include(s => s.Order.Schedule.Ship).Include(s => s.Order.Customer).Where(o => o.Order.OrderAgent == User.Identity.Name).ToList();
+
+                return View(orderList);
+            }
+
         }
 
     }

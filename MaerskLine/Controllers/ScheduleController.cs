@@ -24,9 +24,10 @@ namespace MaerskLine.Controllers
         }
 
         // GET: Schedule
+        [Authorize(Roles = "Admin")]
         public ActionResult ScheduleForm()
         {
-            var shipList = dbContext.Ships.ToList();
+            var shipList = dbContext.Ships.Where(s => s.ShipAvailability.Equals(true)).ToList();
             var viewModel = new ShipScheduleViewModal
             {
                 Ships = shipList
@@ -36,6 +37,7 @@ namespace MaerskLine.Controllers
             return View(viewModel);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult SaveSchedule(ShipScheduleViewModal ssvm)
         {
             if (ssvm.Schedule.ScheduleID == 0)
@@ -63,6 +65,7 @@ namespace MaerskLine.Controllers
             return View("ViewSchedule", scheduleList);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult ViewSchedule()
         {
             var schedule = dbContext.Schedules.Include(s => s.Ship).ToList();
@@ -70,6 +73,7 @@ namespace MaerskLine.Controllers
             return View(schedule);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult EditSchedule(int scheduleID)
         {
             var schedule = dbContext.Schedules.Include(s => s.Ship).SingleOrDefault(c => c.ScheduleID == scheduleID);
@@ -82,7 +86,7 @@ namespace MaerskLine.Controllers
             ShipScheduleViewModal ssvm = new ShipScheduleViewModal
             {
                 Schedule = schedule,
-                Ships = dbContext.Ships.DistinctBy(s => s.ShipName).ToList()
+                Ships = dbContext.Ships.DistinctBy(s => s.ShipName).Where(s => s.ShipAvailability.Equals(true)).ToList()
                 
             };
             //ssvm.Schedule.ScheduleID = scheduleID;
