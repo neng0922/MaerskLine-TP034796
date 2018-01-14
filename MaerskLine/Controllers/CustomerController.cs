@@ -53,7 +53,7 @@ namespace MaerskLine.Controllers
 
             //TempData["AddShipSuccessMsg"] = "<script language='javascript' type='text/javascript'>alert     ('Ship Added Successfully !!!');</script>";
 
-            var customerList = dbContext.Customers.ToList();
+            var customerList = dbContext.Customers.Where(c => c.CustAgent == User.Identity.Name).ToList();
 
             return View("ViewCustomer", customerList);
         }
@@ -61,7 +61,7 @@ namespace MaerskLine.Controllers
         [Authorize]
         public ActionResult ViewCustomer()
         {
-            var cust = dbContext.Customers.ToList();
+            var cust = dbContext.Customers.Where(c => c.CustAgent == User.Identity.Name).ToList();
 
             return View(cust);
         }

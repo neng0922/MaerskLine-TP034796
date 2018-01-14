@@ -23,7 +23,7 @@
     </thead>
 
     <tbody>
-    @foreach(var cust in Model)
+    @foreach (var cust in Model)
     {
         <tr>
             <td>@cust.CustID</td>
@@ -32,7 +32,7 @@
             <td>@cust.CustEmail</td>
             <td>@cust.CustAgent</td>
             <td>@Html.ActionLink("Update", "EditCustomer", "Customer", new {custID = cust.CustID}, null)</td>
-            <td>@Html.ActionLink("Delete", "EditCustomer", "Customer", new { custID = cust.CustID }, null)</td>
+            <td>@Html.ActionLink("Delete", "EditCustomer", "Customer", new {custID = cust.CustID}, null)</td>
         </tr>
     }
     </tbody>

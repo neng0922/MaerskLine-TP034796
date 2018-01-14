@@ -37,7 +37,7 @@ namespace MaerskLine.Controllers
         {
             var schedule = dbContext.Schedules.Include(s => s.Ship).SingleOrDefault(c => c.ScheduleID == scheduleID);
 
-            var customer = dbContext.Customers.ToList();
+            var customer = dbContext.Customers.Where(c => c.CustAgent == User.Identity.Name).ToList();
 
             ScheduleCustomerOrderViewModel scovm = new ScheduleCustomerOrderViewModel()
             {
@@ -68,7 +68,8 @@ namespace MaerskLine.Controllers
             var order = new Order
             {
                 ScheduleID = scovm.Schedule.ScheduleID,
-                CustID = scovm.Customer.CustID
+                CustID = scovm.Customer.CustID,
+                OrderAgent = User.Identity.Name
             };
 
             var container = new Container()
@@ -101,7 +102,7 @@ namespace MaerskLine.Controllers
                 //var orderList = dbContext.Orders.Include(s => s.Schedule.Ship).Include(s => s.Schedule).Include(c => c.Customer).ToList();
 
                 var orderList = dbContext.Containers.Include(o => o.Order).Include(s => s.Order.Schedule)
-                    .Include(s => s.Order.Schedule.Ship).Include(s => s.Order.Customer).ToList();
+                    .Include(s => s.Order.Schedule.Ship).Include(s => s.Order.Customer).Where(o => o.Order.OrderAgent == User.Identity.Name).ToList();
 
                 return View("ViewOrder", orderList);
             }
@@ -111,7 +112,7 @@ namespace MaerskLine.Controllers
         public ActionResult ViewOrder()
         {
             var orderList = dbContext.Containers.Include(o => o.Order).Include(s => s.Order.Schedule)
-                .Include(s => s.Order.Schedule.Ship).Include(s => s.Order.Customer).ToList();
+                .Include(s => s.Order.Schedule.Ship).Include(s => s.Order.Customer).Where(o => o.Order.OrderAgent == User.Identity.Name).ToList();
 
             return View(orderList);
         }

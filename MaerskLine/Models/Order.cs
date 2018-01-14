@@ -12,6 +12,9 @@ namespace MaerskLine.Models
 		[Display(Name = "Order ID")]
 		public int OrderID { get; set; }
 
+        [Display(Name = "Order Agent")]
+	    public String OrderAgent { get; set; }
+
 		[Display(Name = "Order Delivered")]
 		public bool OrderDelivered { get; set; }
 
