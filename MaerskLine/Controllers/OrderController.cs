@@ -88,7 +88,7 @@ namespace MaerskLine.Controllers
 
             var getContainerNum = dbContext.Ships.SingleOrDefault(c => c.ShipID == scovm.Schedule.ShipID);
 
-            if (container.ContainerNum > getContainerNum.ShipContainerNumRemaining)
+            if (container.ContainerNum > getContainerNum.ShipContainerNumRemaining || container.ContainerNum == 0)
             {
                 // false
 
