@@ -4501,7 +4501,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-color: transparent;
 }
 .navbar-default .navbar-brand {
-  color: #ffffff;
+  color:aqua;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {

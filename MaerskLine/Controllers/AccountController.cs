@@ -174,7 +174,7 @@ namespace MaerskLine.Controllers
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     //return RedirectToAction("Index", "Home");
-                    TempData["RegisterSuccessMsg"] = "<script language='javascript' type='text/javascript'>alert     ('Registered Successfully !!!');</script>";
+                    TempData["RegisterSuccessMsg"] = true;
                     return Redirect(this.Request.UrlReferrer.AbsolutePath);
                 }
                 AddErrors(result);
